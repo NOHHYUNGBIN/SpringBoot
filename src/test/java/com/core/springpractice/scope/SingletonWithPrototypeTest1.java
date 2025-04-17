@@ -2,6 +2,7 @@ package com.core.springpractice.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.ObjectProvider;
@@ -58,10 +59,19 @@ public class SingletonWithPrototypeTest1 {
 //        private int getCount() {
 //            return protoTypeBean.getCount();
 //        }
+//        @Autowired
+//        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+//        public int logic() {
+//            PrototypeBean protoTypeBean = prototypeBeanProvider.getObject();
+//            protoTypeBean.addCount();
+//            int count = protoTypeBean.getCount();
+//            return count;
+//        }
         @Autowired
-        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+        private Provider<PrototypeBean> prototypeBeanProvider;
+
         public int logic() {
-            PrototypeBean protoTypeBean = prototypeBeanProvider.getObject();
+            PrototypeBean protoTypeBean = prototypeBeanProvider.get();
             protoTypeBean.addCount();
             int count = protoTypeBean.getCount();
             return count;
