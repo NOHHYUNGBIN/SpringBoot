@@ -22,6 +22,28 @@ class BoardServiceTest {
     public void getListTest() {
         List<Board> list = boardService.getList();
         System.out.println("list = " + list);
+        assertEquals(10, list.size());
+    }
+    @Test
+    public void writeAndReadTest() {
+        User user = new User();
+        user.setId("userB");
+        userRepository.save(user);
+
+        Board board = new Board();
+        board.setBno(11L);
+        board.setTitle("test title");
+        board.setContent("test content");
+        board.setUser(user);
+        board.setViewCount(0L);
+        board.setInDate(new Date());
+        board.setUpDate(new Date());
+        boardService.write(board);
+
+        Board read = boardService.read(11L);
+        System.out.println("read = " + read);
+        assertTrue(read != null);
+
     }
 
     @BeforeEach
