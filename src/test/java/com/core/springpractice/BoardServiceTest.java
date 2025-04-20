@@ -56,6 +56,12 @@ class BoardServiceTest {
         assertEquals("modify title", board2.getTitle());
         assertEquals("modify content", board2.getContent());
     }
+    @Test
+    public void removeTest() {
+        Long testBno = 5L;
+        boardService.remove(testBno);
+        assertNull(boardService.read(testBno));
+    }
 
     @BeforeEach
     public void init() {
