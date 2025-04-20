@@ -23,11 +23,22 @@ public class Board {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date inDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date upDate;
+
+    public void setUser(String userId) {
+        System.out.println("userId = " + userId);
+        this.user = new User();
+        this.user.setId(userId);
+    }
+
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     @Override
     public String toString() {

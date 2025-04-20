@@ -35,7 +35,7 @@ class BoardServiceTest {
         board.setTitle("test title");
         board.setContent("test content");
         board.setUser(user);
-        board.setViewCount(0L);
+        board.setViewCnt(0L);
         board.setInDate(new Date());
         board.setUpDate(new Date());
         boardService.write(board);
@@ -76,7 +76,7 @@ class BoardServiceTest {
             userRepository.save(user);
 
             board.setUser(user);
-            board.setViewCount(0L);
+            board.setViewCnt(0L);
             board.setInDate(new Date());
             board.setUpDate(new Date());
             boardService.write(board);
