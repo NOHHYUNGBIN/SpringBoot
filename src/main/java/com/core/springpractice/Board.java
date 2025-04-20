@@ -18,7 +18,7 @@ public class Board {
 
     private String content;
 
-    private Long viewCount;
+    private Long viewCnt;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -35,7 +35,7 @@ public class Board {
                 "bno=" + bno +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", viewCount=" + viewCount +
+                ", viewCnt=" + viewCnt +
                 ", user=" + user +
                 ", inDate=" + inDate +
                 ", upDate=" + upDate +

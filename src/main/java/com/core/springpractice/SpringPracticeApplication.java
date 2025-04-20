@@ -17,7 +17,7 @@ public class SpringPracticeApplication implements CommandLineRunner {
 
         //톰캣이 안뜨도록 설정변경
         SpringApplication app = new SpringApplication(SpringPracticeApplication.class);
-        app.setWebApplicationType(WebApplicationType.NONE);
+//        app.setWebApplicationType(WebApplicationType.NONE);
         app.run(args);
     }
 
