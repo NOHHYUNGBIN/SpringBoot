@@ -43,7 +43,18 @@ class BoardServiceTest {
         Board read = boardService.read(11L);
         System.out.println("read = " + read);
         assertTrue(read != null);
+    }
 
+    @Test
+    public void modifyTest() {
+        Board board = boardService.read(1L);
+        board.setTitle("modify title");
+        board.setContent("modify content");
+        boardService.modify(board);
+
+        Board board2 = boardService.read(1L);
+        assertEquals("modify title", board2.getTitle());
+        assertEquals("modify content", board2.getContent());
     }
 
     @BeforeEach
